@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Fridge to Fork</title>
+  <meta name="description" content="Get in touch with the Fridge to Fork team. We'd love to hear from you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">🍴 <span>Fridge to Fork</span></a>
+      <ul class="nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <a href="index.html#waitlist" class="btn btn-primary nav-cta">Get Early Access</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#waitlist" class="btn btn-primary" style="margin-top:8px">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero">
+    <div class="container page-hero-inner fade-in">
+      <div class="badge">Say Hello</div>
+      <h1>We'd love to<br>hear from you</h1>
+      <p class="hero-sub" style="max-width:520px;margin:0 auto">
+        Whether you have a question, want to collaborate, or just want to say you made shakshuka for the first time — our inbox is always open.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Contact Section ── -->
+  <section class="section">
+    <div class="container contact-grid">
+
+      <!-- Contact Info -->
+      <div class="contact-info fade-in">
+        <h2>Get in touch</h2>
+        <p>We're a small student team, so we read every message. Expect a reply within 24–48 hours on school days.</p>
+
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-val">hello@fridgetofork.app</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📸</div>
+            <div>
+              <div class="contact-item-label">Instagram</div>
+              <div class="contact-item-val">@fridgetofork</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🎵</div>
+            <div>
+              <div class="contact-item-label">TikTok</div>
+              <div class="contact-item-val">@fridgetofork</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div>
+              <div class="contact-item-label">Based in</div>
+              <div class="contact-item-val">California, USA</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-faq">
+          <div class="contact-faq-title">Frequently asked</div>
+          <div class="faq-item">
+            <div class="faq-q">Is Fridge to Fork free?</div>
+            <div class="faq-a">Yes — completely free for students during our early access period.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What AI does it use?</div>
+            <div class="faq-a">We use a large language model through the Groq API for fast, high-quality recipe generation.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Can I suggest a feature?</div>
+            <div class="faq-a">Absolutely — use the form and select "Feature Request." We build what students actually want.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-wrap fade-in" style="animation-delay:.1s">
+        <form class="contact-form" id="contactForm">
+          <h3>Send us a message</h3>
+          <div class="form-group">
+            <label for="ctName">Your Name *</label>
+            <input type="text" id="ctName" placeholder="Maya Ramirez" required />
+          </div>
+          <div class="form-group">
+            <label for="ctEmail">Email Address *</label>
+            <input type="email" id="ctEmail" placeholder="you@university.edu" required />
+          </div>
+          <div class="form-group">
+            <label for="ctSubject">Subject</label>
+            <select id="ctSubject">
+              <option value="">Select a topic…</option>
+              <option value="general">General Question</option>
+              <option value="feature">Feature Request</option>
+              <option value="bug">Bug Report</option>
+              <option value="collab">Collaboration / Partnership</option>
+              <option value="press">Press / Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="ctMsg">Message *</label>
+            <textarea id="ctMsg" rows="5" placeholder="Tell us what's on your mind…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px" id="ctBtn">
+            Send Message →
+          </button>
+        </form>
+        <div class="contact-success" id="contactSuccess" style="display:none">
+          <div class="success-icon">✅</div>
+          <h3>Message sent!</h3>
+          <p>Thanks for reaching out. We'll get back to you within 24–48 hours.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">🍴 Fridge to Fork</div>
+        <p>AI meal planning built for college students who want to eat well without breaking the bank.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#waitlist">Early Access</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2025 Fridge to Fork. Made with 🍴 for students everywhere.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Fridge to Fork</title>
+  <meta name="description" content="See exactly how Fridge to Fork turns your ingredients into full recipes in seconds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">🍴 <span>Fridge to Fork</span></a>
+      <ul class="nav-links">
+        <li><a href="how-it-works.html" class="active">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="index.html#waitlist" class="btn btn-primary nav-cta">Get Early Access</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#waitlist" class="btn btn-primary" style="margin-top:8px">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- ── Page Hero ── -->
+  <section class="page-hero">
+    <div class="container page-hero-inner fade-in">
+      <div class="badge">The Full Walkthrough</div>
+      <h1>Four tools. Zero<br>cooking experience needed.</h1>
+      <p class="hero-sub" style="max-width:600px;margin:0 auto">
+        Here's exactly how each feature works — from typing your first ingredient to sitting down with a full, home-cooked meal.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Feature 1: Fridge Scan ── -->
+  <section class="section hiw-feature" id="fridge-scan">
+    <div class="container hiw-feature-inner">
+      <div class="hiw-feature-text fade-in">
+        <div class="hiw-feature-num">01</div>
+        <div class="badge">Most Popular</div>
+        <h2>Fridge Scan</h2>
+        <p>Enter the ingredients you have (or plan to buy), set your preferences, and get 15 full recipes — 5 breakfast, 5 lunch, 5 dinner.</p>
+        <div class="hiw-details">
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">📊</span>
+            <div>
+              <strong>Full nutrition info</strong>
+              <p>Calories, protein, carbs, and fat per serving — so you stay on track.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">💰</span>
+            <div>
+              <strong>Real cost comparison</strong>
+              <p>Every recipe shows home cost vs. ordering out — and exactly how much you save.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">🔄</span>
+            <div>
+              <strong>Smart substitutions</strong>
+              <p>Every specialty ingredient has 2–3 swaps right inline, so you never get stuck.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">🥗</span>
+            <div>
+              <strong>Dietary filters</strong>
+              <p>Vegetarian, non-vegetarian, or mixed — the AI strictly follows your preference.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-feature-demo fade-in" style="animation-delay:.1s">
+        <div class="demo-box">
+          <div class="demo-label">Try it yourself ↓</div>
+          <div class="demo-ingredients">
+            <div class="demo-ing-title">Add ingredients:</div>
+            <div class="demo-chips" id="demoChips">
+              <div class="demo-chip active">🥚 eggs</div>
+              <div class="demo-chip active">🧀 cheese</div>
+              <div class="demo-chip active">🍅 tomato</div>
+              <div class="demo-chip">+ soy sauce</div>
+              <div class="demo-chip">+ rice</div>
+              <div class="demo-chip">+ onion</div>
+            </div>
+            <div class="demo-input-row">
+              <input type="text" id="demoIngInput" placeholder="Add an ingredient…" class="demo-input" />
+              <button class="btn btn-primary" onclick="demoAddIngredient()" style="padding:10px 18px;font-size:.875rem">Add</button>
+            </div>
+          </div>
+          <div class="demo-result" id="demoResult">
+            <div class="demo-recipe-card">
+              <div class="demo-recipe-header" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">
+                <span class="demo-recipe-emoji">🍳</span>
+                <div>
+                  <div class="demo-recipe-title">Shakshuka</div>
+                  <div class="demo-recipe-meta">⏱ 25 min &nbsp;|&nbsp; 💰 $2.10/srv &nbsp;|&nbsp; 👥 Serves 2</div>
+                </div>
+              </div>
+              <div class="demo-recipe-body">
+                <div class="demo-recipe-stats">
+                  <div class="demo-stat"><strong>380</strong><span>kcal</span></div>
+                  <div class="demo-stat"><strong>18g</strong><span>protein</span></div>
+                  <div class="demo-stat"><strong>22g</strong><span>carbs</span></div>
+                  <div class="demo-stat"><strong>14g</strong><span>fat</span></div>
+                </div>
+                <p style="font-size:.85rem;color:var(--gray-500);margin-top:10px">
+                  A rich, spiced tomato sauce with eggs poached right in. Ready in 25 minutes with just 4 ingredients.
+                </p>
+              </div>
+            </div>
+            <div class="demo-more-recipes">+ 14 more recipes generated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 2: Reverse Lookup ── -->
+  <section class="section hiw-feature hiw-feature-alt" style="background:var(--gray-50)" id="reverse">
+    <div class="container hiw-feature-inner">
+      <div class="hiw-feature-demo fade-in">
+        <div class="demo-box">
+          <div class="demo-label">Example output:</div>
+          <div class="demo-shopping-list">
+            <div class="demo-list-title">🛒 Shopping List for Shakshuka</div>
+            <div class="demo-list-section">
+              <div class="demo-list-heading">🥬 Produce</div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Tomatoes (4 medium, ~$1.20)</div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Bell pepper, red (1, ~$0.80)</div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Yellow onion (1, ~$0.40)</div>
+            </div>
+            <div class="demo-list-section">
+              <div class="demo-list-heading">🥚 Proteins</div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Large eggs (4, ~$1.00)</div>
+            </div>
+            <div class="demo-list-section">
+              <div class="demo-list-heading">🧂 Pantry</div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Cumin, 1 tsp <em>(pantry staple)</em></div>
+              <div class="demo-list-item"><span class="demo-checkbox">☐</span> Paprika, 1 tsp <em>(pantry staple)</em></div>
+            </div>
+            <div class="demo-total">💰 Total: ~$4.20 for 2 servings</div>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-feature-text fade-in" style="animation-delay:.1s">
+        <div class="hiw-feature-num">02</div>
+        <div class="badge">Smart Shopping</div>
+        <h2>Reverse Lookup</h2>
+        <p>Know what you want to make but not sure what to buy? Enter any dish name and get a complete, organized shopping list — with brand recommendations and what to avoid.</p>
+        <div class="hiw-details">
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">🏷️</span>
+            <div>
+              <strong>Brand recommendations</strong>
+              <p>For every canned or packaged item, we name the best brand and explain why (e.g. lowest sodium, no preservatives).</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">📦</span>
+            <div>
+              <strong>Bulk buying tips</strong>
+              <p>Know which items save you more per ounce when bought in bulk at Costco vs. your campus store.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 3: Health Recipes ── -->
+  <section class="section hiw-feature" id="health">
+    <div class="container hiw-feature-inner">
+      <div class="hiw-feature-text fade-in">
+        <div class="hiw-feature-num">03</div>
+        <div class="badge">Nutrition Focused</div>
+        <h2>Health Recipes</h2>
+        <p>Got lab results from a doctor visit? Or just know you're low on iron, vitamin D, or protein? Enter your concern and get 10 recipes specifically designed to help.</p>
+        <div class="hiw-details">
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">🔬</span>
+            <div>
+              <strong>Science-backed explanations</strong>
+              <p>Every recipe explains <em>exactly</em> how it helps — e.g. "The spinach provides 3.6mg of iron. Vitamin C in the lemon boosts absorption by 300%."</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">⚠️</span>
+            <div>
+              <strong>Blocker foods listed</strong>
+              <p>You'll learn what foods to avoid pairing together — like calcium blocking iron absorption.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">🩺</span>
+            <div>
+              <strong>Medical disclaimer included</strong>
+              <p>We always remind you to consult your doctor. This is food guidance, not medical advice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-feature-demo fade-in" style="animation-delay:.1s">
+        <div class="demo-box">
+          <div class="demo-label">Example input:</div>
+          <div class="demo-health-input">
+            <div class="demo-health-row">
+              <label>Health concern:</label>
+              <div class="demo-health-val">Iron deficiency / low energy</div>
+            </div>
+            <div class="demo-health-row">
+              <label>Lab value (optional):</label>
+              <div class="demo-health-val">Ferritin: 8 ng/mL (low)</div>
+            </div>
+            <div class="demo-health-row">
+              <label>Diet:</label>
+              <div class="demo-health-val">Vegetarian</div>
+            </div>
+          </div>
+          <div class="demo-health-result">
+            <div class="demo-health-card">
+              <div class="demo-health-title">🥬 Spinach & Lentil Dal</div>
+              <div class="demo-health-highlight">
+                🎯 Iron: 6.6mg per serving (37% DV)
+              </div>
+              <p style="font-size:.82rem;color:var(--gray-500)">
+                "The lentils provide 3.3mg non-heme iron. The tomatoes add vitamin C, boosting absorption by up to 300%."
+              </p>
+            </div>
+            <div class="demo-more-recipes">+ 9 more health-targeted recipes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Feature 4: Weekly Planner ── -->
+  <section class="section hiw-feature hiw-feature-alt" style="background:var(--gray-50)" id="weekly">
+    <div class="container hiw-feature-inner">
+      <div class="hiw-feature-demo fade-in">
+        <div class="demo-box">
+          <div class="demo-label">Weekly plan preview:</div>
+          <div class="demo-weekly">
+            <div class="demo-weekly-header">
+              <span>Budget: $35</span><span>·</span><span>5 days</span><span>·</span><span>Vegetarian</span>
+            </div>
+            <div class="demo-day">
+              <div class="demo-day-label">Day 1</div>
+              <div class="demo-day-meals">
+                <div class="demo-day-meal"><span>🌅</span> Avocado Toast + Egg</div>
+                <div class="demo-day-meal"><span>☀️</span> Caprese Pasta Salad</div>
+                <div class="demo-day-meal"><span>🌙</span> Lentil Vegetable Soup</div>
+              </div>
+            </div>
+            <div class="demo-day">
+              <div class="demo-day-label">Day 2</div>
+              <div class="demo-day-meals">
+                <div class="demo-day-meal"><span>🌅</span> Greek Yogurt Parfait</div>
+                <div class="demo-day-meal"><span>☀️</span> Hummus Veggie Wrap</div>
+                <div class="demo-day-meal"><span>🌙</span> Stir-Fried Tofu & Rice</div>
+              </div>
+            </div>
+            <div class="demo-savings">
+              💵 vs eating out: you save ~<strong>$85</strong> this week
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hiw-feature-text fade-in" style="animation-delay:.1s">
+        <div class="hiw-feature-num">04</div>
+        <div class="badge">Budget Friendly</div>
+        <h2>Weekly Meal Planner</h2>
+        <p>Set your weekly budget and number of days. Get a full meal plan, a single consolidated grocery list, and a real cost breakdown vs. eating out.</p>
+        <div class="hiw-details">
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">📋</span>
+            <div>
+              <strong>One grocery list, all meals</strong>
+              <p>Every ingredient for the entire week in one organized list — no cross-checking needed.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">💵</span>
+            <div>
+              <strong>Real savings calculation</strong>
+              <p>We calculate what 3 meals/day from delivery would cost, then show exactly how much you're saving.</p>
+            </div>
+          </div>
+          <div class="hiw-detail">
+            <span class="hiw-detail-icon">♻️</span>
+            <div>
+              <strong>Zero waste tips</strong>
+              <p>Leftover guidance built in — so nothing in your fridge goes to waste.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="section" style="text-align:center">
+    <div class="container fade-in">
+      <h2>Ready to cook smarter?</h2>
+      <p style="max-width:500px;margin:16px auto 32px">Join hundreds of students already saving time and money with Fridge to Fork.</p>
+      <a href="index.html#waitlist" class="btn btn-primary btn-lg">Join the Waitlist →</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">🍴 Fridge to Fork</div>
+        <p>AI meal planning built for college students who want to eat well without breaking the bank.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#waitlist">Early Access</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2025 Fridge to Fork. Made with 🍴 for students everywhere.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function demoAddIngredient() {
+      const input = document.getElementById('demoIngInput');
+      const val = input.value.trim();
+      if (!val) return;
+      const chips = document.getElementById('demoChips');
+      const chip = document.createElement('div');
+      chip.className = 'demo-chip active';
+      chip.textContent = val;
+      chips.insertBefore(chip, chips.lastElementChild);
+      input.value = '';
+    }
+    document.getElementById('demoIngInput')?.addEventListener('keydown', e => {
+      if (e.key === 'Enter') demoAddIngredient();
+    });
+    document.querySelectorAll('.demo-chip').forEach(c => {
+      c.addEventListener('click', () => c.classList.toggle('active'));
+    });
+  </script>
+</body>
+</html>

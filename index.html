@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fridge to Fork — AI Meal Planner for College Students</title>
+  <meta name="description" content="Turn whatever's in your fridge into a full week of meals. AI-powered recipes built for college students on a budget." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        🍴 <span>Fridge to Fork</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="#waitlist" class="btn btn-primary nav-cta">Get Early Access</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="how-it-works.html">How It Works</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="#waitlist" class="btn btn-primary" style="margin-top:8px">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text fade-in">
+        <div class="badge">🎓 Built for College Students</div>
+        <h1>What can you make<br>with <span class="hero-highlight">what you have?</span></h1>
+        <p class="hero-sub">
+          Type in your ingredients, get 15 full recipes — with photos, steps, and shopping lists — in seconds. No culinary degree required.
+        </p>
+        <div class="hero-btns">
+          <a href="#waitlist" class="btn btn-primary btn-lg">Join the Waitlist →</a>
+          <a href="how-it-works.html" class="btn btn-outline btn-lg">See How It Works</a>
+        </div>
+        <div class="hero-social-proof">
+          <div class="hero-avatars">
+            <img src="https://i.pravatar.cc/40?img=1" alt="student" />
+            <img src="https://i.pravatar.cc/40?img=2" alt="student" />
+            <img src="https://i.pravatar.cc/40?img=3" alt="student" />
+            <img src="https://i.pravatar.cc/40?img=4" alt="student" />
+          </div>
+          <span>Loved by <strong>500+</strong> students at UC Davis, USC &amp; more</span>
+        </div>
+      </div>
+      <div class="hero-visual fade-in" style="animation-delay:.15s">
+        <div class="hero-app-mockup">
+          <div class="mockup-bar">
+            <span class="mockup-dot red"></span>
+            <span class="mockup-dot yellow"></span>
+            <span class="mockup-dot green"></span>
+            <span class="mockup-url">fridgetofork.app</span>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-input-row">
+              <div class="mockup-chip">🥚 eggs</div>
+              <div class="mockup-chip">🧀 cheese</div>
+              <div class="mockup-chip">🍅 tomato</div>
+              <div class="mockup-chip">🧅 onion</div>
+              <div class="mockup-chip add">+ Add</div>
+            </div>
+            <div class="mockup-cards">
+              <div class="mockup-card">
+                <div class="mockup-card-img" style="background:linear-gradient(135deg,#fef3c7,#fde68a)">🍳</div>
+                <div class="mockup-card-text">
+                  <div class="mockup-card-title">Shakshuka</div>
+                  <div class="mockup-card-meta">⏱ 25 min &nbsp;·&nbsp; 💰 $2.10/srv</div>
+                </div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-img" style="background:linear-gradient(135deg,#dcfce7,#bbf7d0)">🫕</div>
+                <div class="mockup-card-text">
+                  <div class="mockup-card-title">Egg Fried Rice</div>
+                  <div class="mockup-card-meta">⏱ 20 min &nbsp;·&nbsp; 💰 $1.80/srv</div>
+                </div>
+              </div>
+              <div class="mockup-card">
+                <div class="mockup-card-img" style="background:linear-gradient(135deg,#ede9fe,#ddd6fe)">🥗</div>
+                <div class="mockup-card-text">
+                  <div class="mockup-card-title">Caprese Salad</div>
+                  <div class="mockup-card-meta">⏱ 10 min &nbsp;·&nbsp; 💰 $2.50/srv</div>
+                </div>
+              </div>
+            </div>
+            <div class="mockup-generating">
+              <div class="mockup-gen-dot"></div>
+              <span>AI generating 12 more recipes…</span>
+            </div>
+          </div>
+        </div>
+        <!-- Floating badges -->
+        <div class="hero-float hero-float-1 fade-in" style="animation-delay:.3s">
+          💸 Save ~$60/week vs eating out
+        </div>
+        <div class="hero-float hero-float-2 fade-in" style="animation-delay:.45s">
+          ✅ 15 full recipes in &lt;30 sec
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats Strip ── -->
+  <section class="stats-strip">
+    <div class="container stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">15</div>
+        <div class="stat-lbl">Recipes per session</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">$4</div>
+        <div class="stat-lbl">Avg. cost per meal</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">30s</div>
+        <div class="stat-lbl">Time to full meal plan</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Free to try</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="badge">What's Inside</div>
+        <h2>Everything you need to<br>eat well on a student budget</h2>
+        <p>Four powerful tools, one simple app. No meal-prep experience needed.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat-card fade-in" style="animation-delay:.05s">
+          <div class="feat-icon" style="background:#dcfce7">🥗</div>
+          <h3>Fridge Scan</h3>
+          <p>Type what you have — or even what you're willing to buy — and get 15 full breakfast, lunch, and dinner recipes instantly.</p>
+          <a href="how-it-works.html" class="feat-link">Learn more →</a>
+        </div>
+        <div class="feat-card fade-in" style="animation-delay:.1s">
+          <div class="feat-icon" style="background:#fef3c7">🛒</div>
+          <h3>Reverse Lookup</h3>
+          <p>Craving something specific? Type a dish name and get a complete smart shopping list with brand recommendations and what to avoid.</p>
+          <a href="how-it-works.html" class="feat-link">Learn more →</a>
+        </div>
+        <div class="feat-card fade-in" style="animation-delay:.15s">
+          <div class="feat-icon" style="background:#ede9fe">💊</div>
+          <h3>Health-First Recipes</h3>
+          <p>Enter a health concern or lab values from your doctor visit. Get 10 targeted recipes that actually help, with explanations backed by nutrition science.</p>
+          <a href="how-it-works.html" class="feat-link">Learn more →</a>
+        </div>
+        <div class="feat-card fade-in" style="animation-delay:.2s">
+          <div class="feat-icon" style="background:#fee2e2">📅</div>
+          <h3>Weekly Planner</h3>
+          <p>Set your budget and days. Get a full week of meals, a single grocery list, and a cost breakdown showing exactly how much you're saving vs. DoorDash.</p>
+          <a href="how-it-works.html" class="feat-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How it works strip ── -->
+  <section class="section how-strip" id="how">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="badge">Simple as 1-2-3</div>
+        <h2>From fridge to table in 3 steps</h2>
+      </div>
+      <div class="steps-row">
+        <div class="step fade-in" style="animation-delay:.05s">
+          <div class="step-num">1</div>
+          <div class="step-icon">🧺</div>
+          <h3>Add your ingredients</h3>
+          <p>Type what you have on hand, or what you're planning to pick up from the store.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step fade-in" style="animation-delay:.1s">
+          <div class="step-num">2</div>
+          <div class="step-icon">🤖</div>
+          <h3>AI builds your recipes</h3>
+          <p>Our AI generates 15 full recipes with photos, exact quantities, and step-by-step instructions for beginners.</p>
+        </div>
+        <div class="step-arrow">→</div>
+        <div class="step fade-in" style="animation-delay:.15s">
+          <div class="step-num">3</div>
+          <div class="step-icon">🍽️</div>
+          <h3>Cook with confidence</h3>
+          <p>Each recipe is written for someone who's never cooked before. No jargon, just clear steps that actually work.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px">
+        <a href="how-it-works.html" class="btn btn-primary btn-lg fade-in">See full walkthrough →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ── -->
+  <section class="section" id="testimonials" style="background:var(--gray-50)">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="badge">Real Students</div>
+        <h2>What they're saying</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card fade-in" style="animation-delay:.05s">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"I typed in 'eggs, rice, soy sauce' and it gave me 6 different dinners. I've been eating way better and spending like half what I used to."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/44?img=5" alt="Maya" />
+            <div>
+              <div class="testi-name">Maya R.</div>
+              <div class="testi-role">Junior, UC Davis</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in" style="animation-delay:.1s">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The weekly planner blew me away. I set a $35 budget for 5 days and it gave me a grocery list and ALL the recipes. I saved $40 that week."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/44?img=12" alt="Jordan" />
+            <div>
+              <div class="testi-name">Jordan T.</div>
+              <div class="testi-role">Sophomore, USC</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card fade-in" style="animation-delay:.15s">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The health recipes feature is actually insane. I told it I had low iron and it gave me 10 recipes with explanations of how each one helps. My doctor was impressed."</p>
+          <div class="testi-author">
+            <img src="https://i.pravatar.cc/44?img=9" alt="Priya" />
+            <div>
+              <div class="testi-name">Priya S.</div>
+              <div class="testi-role">Senior, Cal Poly</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Waitlist / Email Capture ── -->
+  <section class="section waitlist-section" id="waitlist">
+    <div class="container">
+      <div class="waitlist-inner fade-in">
+        <div class="waitlist-text">
+          <div class="badge" style="background:rgba(255,255,255,.2);color:#fff;border-color:rgba(255,255,255,.3)">🚀 Early Access</div>
+          <h2 style="color:#fff">Be first in line.<br>It's totally free.</h2>
+          <p style="color:rgba(255,255,255,.85)">We're rolling out early access to students now. Drop your info and we'll send you a link the moment your spot is ready.</p>
+          <ul class="waitlist-perks">
+            <li>✓ Free forever for students</li>
+            <li>✓ No credit card needed</li>
+            <li>✓ Instant access when your spot opens</li>
+          </ul>
+        </div>
+        <div class="waitlist-form-wrap">
+          <form class="waitlist-form" id="waitlistForm">
+            <h3>Join the Waitlist</h3>
+            <div class="form-group">
+              <label for="wlName">Your Name</label>
+              <input type="text" id="wlName" placeholder="e.g. Maya Ramirez" required />
+            </div>
+            <div class="form-group">
+              <label for="wlEmail">Email Address</label>
+              <input type="email" id="wlEmail" placeholder="you@university.edu" required />
+            </div>
+            <div class="form-group">
+              <label for="wlSchool">Your School <span style="opacity:.6;font-weight:400">(optional)</span></label>
+              <input type="text" id="wlSchool" placeholder="e.g. UC Davis" />
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;font-size:1rem;padding:16px" id="wlBtn">
+              🍴 Claim My Spot
+            </button>
+          </form>
+          <div class="waitlist-success" id="waitlistSuccess" style="display:none">
+            <div class="success-icon">🎉</div>
+            <h3>You're on the list!</h3>
+            <p>Thanks for signing up. We'll email you as soon as your spot is ready — usually within a few days.</p>
+            <p style="margin-top:8px;font-size:.85rem;opacity:.7">Check your spam folder if you don't hear from us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">🍴 Fridge to Fork</div>
+        <p>AI meal planning built for college students who want to eat well without breaking the bank.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">📸</a>
+          <a href="#" aria-label="TikTok">🎵</a>
+          <a href="#" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Product</div>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="#features">Features</a>
+        <a href="#waitlist">Early Access</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Legal</div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        © 2025 Fridge to Fork. Made with 🍴 for students everywhere.
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
