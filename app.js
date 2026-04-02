@@ -8,10 +8,10 @@
 const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';
 const SUPABASE_ANON_KEY = 'YOUR_ANON_PUBLIC_KEY';
 
-let supabase = null;
+let supabaseClient = null;
 try {
   if (window.supabase && SUPABASE_URL !== 'https://YOUR_PROJECT_ID.supabase.co') {
-    supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
 } catch (e) {
   console.warn('Supabase not configured yet:', e.message);
@@ -82,7 +82,7 @@ function initWaitlistForm() {
     let saved = false;
 
     // Try Supabase first
-    if (supabase) {
+    if (supabaseClient) {
       try {
         const { error } = await supabase
           .from('waitlist')
@@ -94,7 +94,7 @@ function initWaitlistForm() {
           console.error('Supabase error:', error.message);
         }
       } catch (err) {
-        console.warn('Supabase insert failed:', err.message);
+        console.warn('Supabase insert failed (waitlist):', err.message);
       }
     }
 
@@ -133,7 +133,7 @@ function initContactForm() {
 
     let saved = false;
 
-    if (supabase) {
+    if (supabaseClient) {
       try {
         const { error } = await supabase
           .from('contact_messages')
