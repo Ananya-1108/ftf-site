@@ -5,12 +5,12 @@
 // ── Supabase Config ──
 // Replace these with your actual Supabase project values from:
 // https://supabase.com/dashboard → your project → Settings → API
-const SUPABASE_URL = 'https://YOUR_PROJECT_ID.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_PUBLIC_KEY';
+const SUPABASE_URL = 'https://smfwxoszffmwveumdybn.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_mU57VsNtlTSix2dI0qZ_hA_k1vxFV_a';
 
 let supabaseClient = null;
 try {
-  if (window.supabase && SUPABASE_URL !== 'https://YOUR_PROJECT_ID.supabase.co') {
+  if (window.supabase && SUPABASE_URL !== 'PASTE_YOUR_PROJECT_URL_HERE') {
     supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
   }
 } catch (e) {
